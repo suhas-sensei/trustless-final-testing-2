@@ -15,7 +15,7 @@ export const useMoonPay = () => {
 
         if (verification.status === "completed") {
           // Proceed with funding the escrow
-          const result = await fundEscrow({
+          await fundEscrow({
             contractId,
             engagementId: verification.engagementId,
             signer: verification.walletAddress,
@@ -26,7 +26,8 @@ export const useMoonPay = () => {
             description: "Escrow funded successfully via MoonPay",
           });
         }
-      } catch (error) {
+      } catch (err) {
+        console.error("MoonPay transaction failed:", err);
         toast({
           title: "Error",
           description: "Failed to complete MoonPay transaction",

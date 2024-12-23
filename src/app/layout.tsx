@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
-import { MoonPayProvider } from "@moonpay/moonpay-react";
+// import { MoonPayProvider } from "@moonpay/moonpay-react";
 import { MoonPayClientProvider } from "@/components/providers/MoonPayClientProvider";
 
 const geistSans = localFont({

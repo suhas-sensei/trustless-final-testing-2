@@ -27,6 +27,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(transaction);
   } catch (error) {
+    console.error("Transaction verification failed:", error);
     return NextResponse.json(
       { error: "Failed to verify transaction" },
       { status: 500 },

@@ -1,4 +1,4 @@
-import { useWalletStore } from "@/store/walletStore";
+// import { useWalletStore } from "@/store/walletStore";
 import { kit } from "@/wallet/walletKit";
 
 interface MoonPayConfig {

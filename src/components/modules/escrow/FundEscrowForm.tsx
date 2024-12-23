@@ -16,17 +16,17 @@ import { TooltipInfo } from "./EscrowFormField";
 import { MoonPayWidget } from "@/components/modules/moonpay/MoonPayWidget";
 import { useMoonPay } from "@/hooks/useMoonPay";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { useState } from "react";
+// import { useState } from "react";
 
 export function FundEscrowForm() {
   const { onSubmit, form } = useFundEscrowHook();
   const { isWidgetOpen, setIsWidgetOpen } = useMoonPay();
-  const [paymentMethod, setPaymentMethod] = useState<"wallet" | "card">(
-    "wallet",
-  );
+  // const [paymentMethod, setPaymentMethod] = useState<"wallet" | "card">(
+  //   "wallet",
+  // );
 
   const handleSubmit = async (values: any) => {
-    if (paymentMethod === "card") {
+    if (values.paymentMethod === "card") {
       setIsWidgetOpen(true);
     } else {
       await onSubmit(values);
@@ -106,9 +106,8 @@ export function FundEscrowForm() {
               <FormLabel>Payment Method</FormLabel>
               <FormControl>
                 <RadioGroup
-                  onValueChange={(value) =>
-                    setPaymentMethod(value as "wallet" | "card")
-                  }
+                  onValueChange={field.onChange}
+                  value={field.value}
                   defaultValue="wallet"
                   className="flex flex-col space-y-1"
                 >

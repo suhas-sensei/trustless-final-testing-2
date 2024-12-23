@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { useEffect } from "react";
+// import { Button } from "@/components/ui/button";
+// import {
+//   Dialog,
+//   DialogContent,
+//   DialogHeader,
+//   DialogTitle,
+// } from "@/components/ui/dialog";
 
 interface MoonPayWidgetProps {
   isOpen: boolean;
@@ -42,6 +42,9 @@ export function MoonPayWidget({
             quoteCurrencyCode: "usd",
             lockAmount: "true",
             lockWalletAddress: "true",
+          },
+          onClose: () => {
+            onClose();
           },
         });
         moonpaySdk.show();
